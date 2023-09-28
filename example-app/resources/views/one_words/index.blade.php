@@ -36,7 +36,8 @@
       @foreach($one_words as $one_word)
         <p>ID:{{ $one_word->id }}</p> 
         <p>{{ $one_word->word }}</p>
-        <p>{{ $one_word->converted_created_at }}</p> 
+        {{ $one_word->converted_created_at }}
+        <a href="{{ route('edit', ['one_word_id' => $one_word->id ]) }}">編集</a> 
       @endforeach
     </div>
     <footer>

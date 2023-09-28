@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OneWordsController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::post('/',[OneWordsController::class, 'store']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/edit/{one_word_id}', [OneWordsController::class,'edit'])->name('edit');
+Route::post('/edit/{one_word_id}', [OneWordsController::class,'update']);

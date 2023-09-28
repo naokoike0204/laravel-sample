@@ -34,14 +34,28 @@
       @endif
       <hr/>
       @foreach($one_words as $one_word)
-        <p>ID:{{ $one_word->id }}</p> 
+        <p>ID:{{ $one_word->id }}</p>
         <p>{{ $one_word->word }}</p>
         {{ $one_word->converted_created_at }}
-        <a href="{{ route('edit', ['one_word_id' => $one_word->id ]) }}">編集</a> 
-      @endforeach
+        <a href="{{ route('edit', ['one_word_id' => $one_word->id ]) }}">編集</a>
+        <form action="{{ route('delete', ['one_word_id' => $one_word->id ]) }}" method="POST" id="form2" name="form2">
+        @csrf
+        <a href="javascript:void(0)" onClick="confirmFunction1()">削除</a>
+        </form>
+        @endforeach
     </div>
     <footer>
     </footer>
   </div>
+  <script>
+    function confirmFunction1() {
+    //ret変数に確認ダイアログの結果を代入する。
+    ret = confirm("本当に削除しますか？");
+    //確認ダイアログの結果がOKの場合外部リンクを開く
+    if (ret == true){
+        document.form2.submit();
+    }
+    }
+    </script>
 </body>
 </html>

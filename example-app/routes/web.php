@@ -24,3 +24,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/edit/{one_word_id}', [OneWordsController::class,'edit'])->name('edit');
 Route::post('/edit/{one_word_id}', [OneWordsController::class,'update']);
+Route::get('/delete/{one_word_id}',[OneWordsController::class,'delete'])->name('delete');
+Route::post('/delete/{one_word_id}',[OneWordsController::class,'delete'])->name('delete');

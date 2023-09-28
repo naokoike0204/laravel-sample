@@ -52,4 +52,16 @@ class OneWordsController extends Controller
 
       return redirect('/');
     }
+
+    public function delete($one_word_id)
+    {
+      $one_word = OneWord::where('id','=',$one_word_id)->first();
+      if(!empty($one_word) && $one_word->user_id == Auth::user()->id){
+        $one_word->delete();
+      }
+
+      return redirect('/');
+    }
+
+
 }

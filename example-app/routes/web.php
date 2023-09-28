@@ -18,3 +18,6 @@ use App\Http\Controllers\OneWordsController;
 
 Route::get('/', [OneWordsController::class, 'index']);
 Route::post('/',[OneWordsController::class, 'store']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
